@@ -1,0 +1,15 @@
+
+body { 
+  margin: 0
+}
+
+header {
+  background-color: #253D39;
+  color: #EAEDEC;
+  width: 100%;
+  height: 50px;
+}
+
+p {
+  color: blue;
+}

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en-FR">
+  <head>
+    <meta charset="utf-8" />
+    <title>L'INCASSABLE</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'collecte/style.css' %}" />
+  </head>
+  <body>
+    <header>L'INCASSABLE</header>
+    <nav></nav>
+    {% if point_de_collectes %}
+    <ul>
+      {% for point_de_collecte in point_de_collectes %}
+      <li>
+        <p>{{ point_de_collecte.nom }}</p>
+      </li>
+      {% endfor %}
+    </ul>
+    {% else %}
+    <p>Aucun point de collecte.</p>
+    {% endif %}
+  </body>
+</html>
