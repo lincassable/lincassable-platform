@@ -1,16 +1,23 @@
 
 
-body { 
+html, body { 
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
+  height: 100%;
 }
 
+.bodyContainer {
+  display: flex;
+  flex-flow: column;
+  height: 100%; 
+}
 
 header {
   background-color: #253D39;
   color: #EAEDEC;
   width: 100%;
   height: 60px;
+  flex: 0 1 60px;
 }
 
 .logoContainer {
@@ -20,23 +27,28 @@ header {
   align-items: center;
 }
 
-.logo {
-  height: 30px;
-  width: auto;
-}
-
 main {
   width: 100%;
+  flex: 1 1 auto;
   display: flex;
-  background-color: red;
 }
 
 nav {
-  width: 250px;
-  background-color: aqua;
+  flex: 0 1 250px;
+  background-color: #EAEDEC;
+}
+
+nav > div {
+  margin-top: 10px;
+  margin-left: 10px;
 }
 
 .content {
-  background-color: green;
-  width: 100%;
+  flex: 1 1 auto;
+  background-color: #FAFAFB;
+}
+
+.logo {
+  height: 30px;
+  width: auto;
 }
