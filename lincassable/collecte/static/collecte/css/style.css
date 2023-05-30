@@ -1,8 +1,6 @@
 
 
 html, body { 
-  margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
   height: 100%;
 }
 
@@ -46,6 +44,11 @@ nav > div {
 .content {
   flex: 1 1 auto;
   background-color: #FAFAFB;
+  padding: 20px;
+}
+
+.addPointDeCollecte {
+  float: right;
 }
 
 .logo {

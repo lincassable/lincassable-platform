@@ -4,7 +4,9 @@
     <meta charset="utf-8" />
     <title>L'INCASSABLE</title>
     {% load static %}
-    <link rel="stylesheet" href="{% static 'collecte/style.css' %}" />
+    <link rel="stylesheet" href="{% static 'collecte/css/normalize.css' %}" />
+    <link rel="stylesheet" href="{% static 'collecte/css/skeleton.css' %}" />
+    <link rel="stylesheet" href="{% static 'collecte/css/style.css' %}" />
   </head>
   <body>
     <div class="bodyContainer">
@@ -16,17 +18,29 @@
       <main class="main">
         <nav class="navigation">
           <div>Points de collecte</div>
-          <div>Entrepôt</div>
         </nav>
         <div class="content">
+          <button class="button button-primary addPointDeCollecte">Ajouter un point de collecte</button>
           {% if point_de_collectes %}
-          <ul>
-            {% for point_de_collecte in point_de_collectes %}
-            <li>
-              <p>{{ point_de_collecte.nom }}</p>
-            </li>
-            {% endfor %}
-          </ul>
+          <table class="u-full-width">
+            <thead>
+              <tr>
+                <th>Nom</th>
+                <th>Adresse</th>
+                <th>Stock casier</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for point_de_collecte in point_de_collectes %}
+              <tr>
+                <td>{{ point_de_collecte.nom }}</td>
+                <td>{{ point_de_collecte.adresse }}</td>
+                <td>{{ point_de_collecte.stock_casier }}</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+
           {% else %}
           <p>Aucun point de collecte.</p>
           {% endif %}
