@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en-FR">
+  <head>
+    <meta charset="utf-8" />
+    <title>L'INCASSABLE</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'collecte/css/normalize.css' %}" />
+    <link rel="stylesheet" href="{% static 'collecte/css/skeleton.css' %}" />
+    <link rel="stylesheet" href="{% static 'collecte/css/style.css' %}" />
+  </head>
+  <body>
+    <div class="bodyContainer">
+      <header>
+        <div class="logoContainer">
+          <img class="logo" src="{% static 'collecte/logo.png' %}" />
+        </div>
+      </header>
+      <main class="main">
+        <nav class="navigation">
+          <div>Points de collecte</div>
+        </nav>
+        <div class="content">
+          {% block content %}{% endblock %}
+        </div>
+      </div>
+    </body>
+  </body>
+</html>
