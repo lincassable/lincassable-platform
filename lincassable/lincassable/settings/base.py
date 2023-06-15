@@ -12,8 +12,15 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 
 from pathlib import Path
 
+import environ
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+env = environ.Env(DEBUG=(bool, False))
+environ.Env.read_env(BASE_DIR / ".env")
+
+DEBUG = env("DEBUG")
 
 
 # Quick-start development settings - unsuitable for production
@@ -56,7 +63,7 @@ ROOT_URLCONF = "lincassable.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
+        "DIRS": [BASE_DIR / "templates"],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -75,16 +82,7 @@ WSGI_APPLICATION = "lincassable.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.postgresql",
-        "NAME": "lincassable",
-        "USER": "benoitguigal",
-        "PASSWORD": "",
-        "HOST": "127.0.0.1",
-        "PORT": "5432",
-    }
-}
+DATABASES = {"default": env.db()}
 
 
 # Password validation
@@ -109,9 +107,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
 
-LANGUAGE_CODE = "en-us"
+LANGUAGE_CODE = "fr-FR"
 
-TIME_ZONE = "UTC"
+TIME_ZONE = "Europe/Paris"
 
 USE_I18N = True
 
@@ -127,3 +125,5 @@ STATIC_URL = "static/"
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+ADMIN_SLUG = env("ADMIN_SLUG")
