@@ -1,0 +1,24 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+django = "*"
+django-environ = "*"
+django-phonenumber-field = "==7.1.0"
+psycopg2-binary = "*"
+phonenumberslite = "*"
+pytest-django = "*"
+
+[dev-packages]
+black = "*"
+isort = "*"
+flake8 = "*"
+djlint = "*"
+pywatchman = "*"
+django-debug-toolbar = "*"
+django-extensions = "*"
+
+[requires]
+python_version = "3.9"

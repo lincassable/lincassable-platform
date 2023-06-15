@@ -1,7 +1,10 @@
 from django.contrib import admin
 
-# Register your models here.
-
 from .models import PointDeCollecte
 
-admin.site.register(PointDeCollecte)
+# Register your models here.
+
+
+@admin.register(PointDeCollecte)
+class PointDeCollecteAdmin(admin.ModelAdmin):
+    list_display = ["nom", "adresse", "stock_casier"]
