@@ -1,0 +1,10 @@
+{% extends "collecte/base.html" %} {% block content %}
+<form action="{{ request.path }}" method="post">
+  {% csrf_token %}
+  <div>
+    Êtes vous certain.e de vouloir supprimer le point de collecte
+    "{{pointdecollecte.nom}}"
+  </div>
+  <input class="button-primary" type="submit" value="Supprimer" />
+</form>
+{% endblock %}

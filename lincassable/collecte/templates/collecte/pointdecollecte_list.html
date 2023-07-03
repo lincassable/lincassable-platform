@@ -1,8 +1,11 @@
 {% extends "collecte/base.html" %} {% block content %}
-<button class="button button-primary addPointDeCollecte">
+<a
+  href="{% url 'pointdecollecte_add' %}"
+  class="button button-primary addPointDeCollecte"
+>
   Ajouter un point de collecte
-</button>
-{% if point_de_collectes %}
+</a>
+{% if points_de_collecte %}
 <table class="u-full-width">
   <thead>
     <tr>
@@ -12,10 +15,11 @@
       <th>Email</th>
       <th>Numéro de téléphone</th>
       <th>Stock casier</th>
+      <th>Actions</th>
     </tr>
   </thead>
   <tbody>
-    {% for point_de_collecte in point_de_collectes %}
+    {% for point_de_collecte in points_de_collecte %}
     <tr>
       <td>{{ point_de_collecte.nom }}</td>
       <td>{{ point_de_collecte.adresse }}</td>
@@ -41,6 +45,14 @@
         {% endif %}
       </td>
       <td>{{ point_de_collecte.stock_casier }}</td>
+      <td>
+        <a href="{% url 'pointdecollecte_update' point_de_collecte.id %}">
+          Modifier </a
+        ><br />
+        <a href="{% url 'pointdecollecte_delete' point_de_collecte.id %}">
+          Supprimer
+        </a>
+      </td>
     </tr>
     {% endfor %}
   </tbody>
